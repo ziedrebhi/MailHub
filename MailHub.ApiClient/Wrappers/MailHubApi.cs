@@ -44,37 +44,6 @@ namespace MailHub.ApiClient.Wrappers
             return result != null ? "Email added to queue successfully." : "Failed to add email to queue.";
         }
 
-        /*  Usage
-         *   // Create an instance of HttpClient
-        var httpClient = new HttpClient();
 
-        // Create an instance of JwtAuthorizationProvider with a sample JWT token
-        var jwtAuthorizationProvider = new JwtAuthorizationProvider("your-jwt-token");
-
-        // Create an instance of ApiClient, passing HttpClient and JwtAuthorizationProvider
-        var apiClient = new ApiClient(httpClient, jwtAuthorizationProvider);
-
-        // Create an instance of MailHubApi, passing the ApiClient and base endpoint URL
-        var mailHubApi = new MailHubApi(apiClient, "https://your-mailhub-api.com");
-
-        // Create an EmailQueue object to be added to the queue
-        var emailQueue = new EmailQueue
-        {
-            TemplateId = 1,  // Optional TemplateId (or use TemplateName)
-            TemplateName = "WelcomeEmail",  // Optional TemplateName
-            Recipient = "recipient@example.com",  // Email recipient
-            Parameters = new Dictionary<string, string> 
-            {
-                { "FirstName", "John" },
-                { "LastName", "Doe" }
-            }  // Parameters to be passed to the email template
-        };
-
-        // Call AddEmailToQueueAsync to add the email to the queue
-        var resultMessage = await mailHubApi.AddEmailToQueueAsync(emailQueue, CancellationToken.None);
-
-         *  
-         *  
-         */
     }
 }
