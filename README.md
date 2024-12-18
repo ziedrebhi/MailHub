@@ -3,12 +3,48 @@ MailHub is an email management application built with .NET 9. It enables users t
 
 ![MailHub](https://github.com/user-attachments/assets/9ef3d18d-943d-4249-b54c-1149a0b6e481)
 
-## Features
--  User Authentication: Secure sign-up and login functionality using JWT.
-- Email Template Management: Create, update, delete, and manage email templates with dynamic parameters.
-- Email Queueing: Emails are queued for processing and sent in the background.
-- SMTP Configuration: Users can configure email sending settings (SMTP) and designate a default sender.
-- Email Monitoring: Track the status of sent emails (e.g., sent, failed) and view logs.
+# MailHub Features (Until now)
+
+## 1. Email Configurations Management
+- Configuring email sender and saving data in the database.
+- Manage SMTP or other email service configurations for sending emails.
+
+## 2. Email Templates Management
+- Creating, updating, and deleting email templates.
+- Templates can contain dynamic parameters for customization during sending.
+
+## 3. Authentication (Login & Signup)
+- User authentication for accessing the application.
+- JWT authentication for securing endpoints and managing user sessions.
+
+## 4. Email Sending Service (Background Service)
+- A background service that processes emails.
+- Sends emails in the background to avoid blocking the main thread.
+
+## 5. Email Queueing
+- Queueing emails for sending either via an API or using the client NuGet package.
+- Allows email requests to be stored and processed asynchronously.
+
+## 6. Queue Monitoring
+- Added functionality to monitor the status of queued emails.
+- Includes endpoints to check the current status, including:
+  - **Pending**
+  - **Sent**
+  - **Failed**
+- Provides detailed information such as error messages and timestamps of sent emails.
+
+## 7. API Client (NuGet Package)
+- Developed a generic API client that interacts with MailHub API for email queueing.
+- Supports different authorization methods like JWT, Basic Auth, or API Key.
+- Encapsulates communication with MailHub endpoints for client usage.
+
+## 8. Email Queue Management (via API & NuGet)
+- Clients can add emails to the queue using API endpoints or through the NuGet package.
+- Includes all necessary details such as template, recipient, and dynamic parameters.
+
+## 9. Error Handling & Logging for Email Queue
+- Provides error messages when emails fail to send, which helps in troubleshooting and monitoring.
+
 
 ## Tech Stack
 
