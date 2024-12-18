@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>MailHub.ApiClient</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Zied REBHI</Authors>
+		<Company>Zied REBHI</Company>
+		<Description>A client for interacting with the MailHub API for email queueing.</Description>
+		<PackageTags>MailHub, API Client, Email Queue</PackageTags>
+		<RepositoryUrl>https://github.com/ziedrebhi/MailHub</RepositoryUrl>
+	</PropertyGroup>
+
+</Project>

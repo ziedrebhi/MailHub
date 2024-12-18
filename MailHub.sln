@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailHub.Api", "MailHub.Api\MailHub.Api.csproj", "{10C5912C-7B2A-4BA0-9292-8CF7CA8A4BA8}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailHub.Infrastructure", "MailHub.Infrastructure\MailHub.Infrastructure.csproj", "{B064B550-4E32-4E34-901E-8EEFB11970FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailHub.Persistence", "MailHub.Persistence\MailHub.Persistence.csproj", "{CA07496E-43AB-4276-8EAD-36CDAB1620E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailHub.ApiClient", "MailHub.ApiClient\MailHub.ApiClient.csproj", "{519F3076-9775-4493-94B5-91A3D6E6BADB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{CA07496E-43AB-4276-8EAD-36CDAB1620E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA07496E-43AB-4276-8EAD-36CDAB1620E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA07496E-43AB-4276-8EAD-36CDAB1620E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{519F3076-9775-4493-94B5-91A3D6E6BADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{519F3076-9775-4493-94B5-91A3D6E6BADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{519F3076-9775-4493-94B5-91A3D6E6BADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{519F3076-9775-4493-94B5-91A3D6E6BADB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

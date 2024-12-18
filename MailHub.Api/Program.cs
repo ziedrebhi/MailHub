@@ -1,8 +1,10 @@
+using MailHub.Api.Middlewares;
 using MailHub.Application.Extensions;
 using MailHub.Infrastructure.Extensions;
 using MailHub.Persistence.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
@@ -11,7 +13,17 @@ builder.Services.AddControllers();
 // Add OpenAPI (Swagger) configuration
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MailHub API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "MailHub API",
+        Version = "v1",
+        Description = "MailHub is an email management application built with .NET 9. It enables users to create, configure, and send personalized email templates. The application supports user authentication, email status monitoring, and background processing of email queues."
+    });
+
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
 
     // Add JWT Bearer authentication to Swagger UI
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -63,6 +75,9 @@ builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
+
+// Register the global exception handler middleware
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

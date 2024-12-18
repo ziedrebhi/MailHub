@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MailHub.Api.Controllers
 {
+    /// <summary>
+    /// Email Templates management
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
@@ -18,7 +21,11 @@ namespace MailHub.Api.Controllers
             _mediator = mediator;
         }
 
-        // Get a template by ID
+        /// <summary>
+        /// Get Email Template by Id
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <returns>Template</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTemplate(int id)
         {
@@ -31,7 +38,11 @@ namespace MailHub.Api.Controllers
             return Ok(template); // Return 200 with the template
         }
 
-        // Create a new template
+        /// <summary>
+        /// Create a new template
+        /// </summary>
+        /// <param name="command">Email template informations</param>
+        /// <returns>Template Id</returns>
         [HttpPost]
         public async Task<IActionResult> CreateTemplate([FromBody] CreateTemplateCommand command)
         {
@@ -40,7 +51,12 @@ namespace MailHub.Api.Controllers
             return CreatedAtAction(nameof(GetTemplate), new { id = templateId }, null); // Return 201 created
         }
 
-        // Update an existing template
+        /// <summary>
+        ///  Update an existing template
+        /// </summary>
+        /// <param name="id">template id</param>
+        /// <param name="command">Email template informations</param>
+        /// <returns>Message</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTemplate(int id, [FromBody] UpdateTemplateCommand command)
         {
@@ -55,7 +71,11 @@ namespace MailHub.Api.Controllers
             return NoContent(); // Return 204 if update is successful
         }
 
-        // Soft delete a template
+        /// <summary>
+        /// Soft delete a template
+        /// </summary>
+        /// <param name="id">template id</param>
+        /// <returns>Message</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTemplate(int id)
         {

@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MailHub.Api.Controllers
 {
+    /// <summary>
+    ///  Email sender management 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
@@ -16,7 +19,11 @@ namespace MailHub.Api.Controllers
         {
             _mediator = mediator;
         }
-
+        /// <summary>
+        /// Create Email sender configuration( SMPT , email , pwd , port )
+        /// </summary>
+        /// <param name="command">Email informations</param>
+        /// <returns>Message</returns>
         [HttpPost]
         public async Task<ActionResult> SetEmailConfiguration([FromBody] SetEmailConfigurationCommand command)
         {
@@ -27,7 +34,12 @@ namespace MailHub.Api.Controllers
             else
                 return BadRequest("Failed to set email configuration."); // Failure
         }
-
+        /// <summary>
+        /// Update Email sender configuration( SMPT , email , pwd , port )
+        /// </summary>
+        /// <param name="id">EmailConfiguration Id</param>
+        /// <param name="command">Email information</param>
+        /// <returns>Message</returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateEmailConfiguration(int id, [FromBody] SetEmailConfigurationCommand command)
         {
