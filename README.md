@@ -18,6 +18,8 @@ MailHub is an email management application built with .NET 9. It enables users t
 - Architecture: Clean Architecture, CQRS, Mediatr
 - Validation: FluentValidation
 - Email Sending: Custom SMTP integration
+  
+![image](https://github.com/user-attachments/assets/75e6b28f-398c-4546-9c18-8c2bd872da93)
 
 ## Usage
  1.  Authentication:
