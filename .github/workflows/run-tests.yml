@@ -3,10 +3,10 @@ name: CI - Unit Tests
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-test:
@@ -21,7 +21,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x' # Adjust to match your .NET version
+          dotnet-version: '9.0.x' 
 
       # Restore dependencies
       - name: Restore Dependencies
