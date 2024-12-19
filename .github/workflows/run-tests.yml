@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: **/TestResults/*.trx
+          path: ./Tests/TestResults/TestResults.trx
