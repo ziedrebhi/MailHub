@@ -2,6 +2,7 @@
 
 [![.NET](https://github.com/ziedrebhi/MailHub/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/ziedrebhi/MailHub/actions/workflows/dotnet.yml)
 [![CI - Unit Tests](https://github.com/ziedrebhi/MailHub/actions/workflows/run-tests.yml/badge.svg?branch=master)](https://github.com/ziedrebhi/MailHub/actions/workflows/run-tests.yml)
+[![CodeQL](https://github.com/ziedrebhi/MailHub/actions/workflows/github-code-scanning/codeql/badge.svg?branch=master)](https://github.com/ziedrebhi/MailHub/actions/workflows/github-code-scanning/codeql)
 
 MailHub is an email management application built with .NET 9. It enables users to create, configure, and send personalized email templates. The application supports user authentication, email status monitoring, and background processing of email queues.
 
