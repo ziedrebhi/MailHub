@@ -40,13 +40,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: ./Tests/TestResults/TestResults.trx
+          path: '**/TestResults/test-results.trx'
       - name: Test Reporter
         uses: dorny/test-reporter@v1.9.1
         if: success() || failure()    # run this step even if previous step failed
         with:
           name: xUnit Tests            # Name of the check run which will be created
-          path: ./Tests/TestResults/test-results.trx    # Path to test results
+          path: '**/TestResults/test-results.trx'   # Path to test results
           reporter: dotnet-trx       # Format of test results
             
             
