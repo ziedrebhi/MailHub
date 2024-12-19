@@ -43,5 +43,10 @@ jobs:
           path: ./Tests/TestResults/TestResults.trx
       - name: Test Reporter
         uses: dorny/test-reporter@v1.9.1
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          name: xUnit Tests            # Name of the check run which will be created
+          path: ./Tests/TestResults/TestResults.trx    # Path to test results
+          reporter: dotnet-nunit        # Format of test results
             
             
