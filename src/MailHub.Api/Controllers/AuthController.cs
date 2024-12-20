@@ -28,16 +28,39 @@ namespace MailHub.Api.Controllers
             var userId = await _mediator.Send(command);
             return Ok(new { UserId = userId });
         }
+
         /// <summary>
-        /// Login to get Token
+        /// Login to get Token and RefreshToken
         /// </summary>
         /// <param name="command">Email and Password</param>
-        /// <returns>JWT Token</returns>
+        /// <returns>JWT Token and RefreshToken</returns>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
         {
-            var token = await _mediator.Send(command);
-            return Ok(new { Token = token });
+            var response = await _mediator.Send(command);
+
+            // The LoginResponse object contains both the JWT token and the refresh token
+            return Ok(new
+            {
+                Token = response.Token,
+                RefreshToken = response.RefreshToken
+            });
+        }
+
+        /// <summary>
+        /// Refresh the JWT token
+        /// </summary>
+        /// <param name="command">Expired token and refresh token</param>
+        /// <returns>New JWT token and refresh token</returns>
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return Ok(new
+            {
+                Token = response.Token,
+                RefreshToken = response.RefreshToken
+            });
         }
     }
 }

@@ -40,16 +40,21 @@ namespace MailHub.Infrastructure.Services
                 var subject = emailQueue.Template.Subject;
                 var body = emailQueue.Template.Body;
 
+                // Clean up unwanted newlines or carriage returns
+                body = body.Replace("\n", " ").Replace("\r", "").Trim();
+                subject = subject.Replace("\n", " ").Replace("\r", "").Trim();
+
+                // Perform parameter replacements
                 foreach (var param in parameters)
                 {
                     body = body.Replace($"{{{{{param.Key}}}}}", param.Value);
+                    subject = subject.Replace($"{{{{{param.Key}}}}}", param.Value);
                 }
 
                 using var smtpClient = new SmtpClient(emailConfig.SmtpHost, emailConfig.SmtpPort)
                 {
                     EnableSsl = emailConfig.EnableSsl,
                     Credentials = new NetworkCredential(emailConfig.SenderEmail, _encryptionService.Decrypt(emailConfig.SenderPassword)),
-
                 };
 
                 var mailMessage = new MailMessage(emailConfig.SenderEmail, emailQueue.Recipient, subject, body)
@@ -88,5 +93,6 @@ namespace MailHub.Infrastructure.Services
                 return false;
             }
         }
+
     }
 }
